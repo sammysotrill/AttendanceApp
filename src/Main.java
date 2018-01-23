@@ -25,6 +25,9 @@ public class Main {
 
         //The average of the absences
         System.out.println("The average of all the absences is: " + avg(absences, sum(absences)));
+
+        //Percentage of students who had fewer than 3 absences also had perfect attendance
+        System.out.println("The Percentage of students who had fewer than 3 absences also had perfect attendance is: " + prcnt(absences));
     }
 
 
@@ -57,4 +60,27 @@ public class Main {
 
 
     }
+
+    public static double prcnt(ArrayList<Integer> list) {
+        int count1 = 0;
+        int count2 = 0;
+        double pct = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) < 3) {
+                count1 = count1 + 1;
+
+            }
+            if (list.get(i) == 0) {
+                count2 = count2 + 1;
+            }
+
+            pct = pct + (count2 / count1) * 100;
+
+        }
+        return pct;
+
+
+    }
+
 }
+
