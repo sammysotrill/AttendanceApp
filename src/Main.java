@@ -27,7 +27,13 @@ public class Main {
         System.out.println("The average of all the absences is: " + avg(absences, sum(absences)));
 
         //Percentage of students who had fewer than 3 absences also had perfect attendance
-        System.out.println("The Percentage of students who had fewer than 3 absences also had perfect attendance is: " + prcnt(absences));
+        System.out.println("The Percentage of students who had fewer than 3 absences also had perfect attendance is: " + prcnt(absences) + "%");
+
+        //Which students had [X] absences
+        ArrayList<Integer>students = students(absences,8);
+        System.out.println("These students had your indicated absences: " + students);
+
+
     }
 
 
@@ -78,6 +84,22 @@ public class Main {
 
         }
         return pct;
+
+
+    }
+
+    public static ArrayList<Integer> students(ArrayList<Integer>absences, int NumOfMissedDays){
+        ArrayList<Integer>list = new ArrayList<Integer>();
+        for (int i = 0; i < absences.size(); i++) {
+            if(absences.get(i) == NumOfMissedDays){
+                list.add(i);
+            }
+
+
+
+        }
+        return list;
+
 
 
     }
