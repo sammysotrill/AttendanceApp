@@ -37,7 +37,24 @@ public class Main {
         ArrayList<Integer>FEs = FEs(absences, 2);
         System.out.println("These students have Fe'd the course " + FEs);
 
+        //Add x to any absences greater than y
+        ArrayList<Integer> plusList = plusList(absences,3,4);
+        System.out.println("The list with added absences: " + plusList);
 
+
+
+
+    }
+
+    private static ArrayList<Integer> plusList(ArrayList<Integer> absences,int addend, int DaysMissed) {
+        ArrayList<Integer>list = new ArrayList<Integer>();
+        for (int i = 0; i < absences.size() ; i++) {
+            if(absences.get(i) > DaysMissed){
+                list.add(absences.get(i) + addend);
+            }
+
+        }
+        return list;
 
     }
 
@@ -120,6 +137,12 @@ public class Main {
         }
         return list;
     }
+
+
+
+
+
+
 
 }
 
