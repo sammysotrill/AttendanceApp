@@ -33,6 +33,11 @@ public class Main {
         ArrayList<Integer>students = students(absences,8);
         System.out.println("These students had your indicated absences: " + students);
 
+        //Which and what percentage of the students have FE'd the course
+        ArrayList<Integer>FEs = FEs(absences, 2);
+        System.out.println("These students have Fe'd the course " + FEs);
+
+
 
     }
 
@@ -102,6 +107,18 @@ public class Main {
 
 
 
+    }
+
+    public static ArrayList<Integer> FEs(ArrayList<Integer> absences,int TimesMetAWeek){
+        ArrayList<Integer>list = new ArrayList<Integer>();
+        for (int i = 0; i < absences.size() ; i++) {
+            if(absences.get(i) <= (2*TimesMetAWeek)){
+                list.add(i);
+
+            }
+
+        }
+        return list;
     }
 
 }
