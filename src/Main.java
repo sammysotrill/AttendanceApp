@@ -1,9 +1,6 @@
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -27,44 +24,46 @@ public class Main {
         System.out.println("There are " + perfAtt(absences) + " students with perfect attendance.");
 
         //The average of the absences
-        System.out.println("The average of all the absences is: " + avg(absences, sum(absences)));
+        System.out.println("The average of all the absences is: " + avg(absences, sum(absences)) + "\n");
 
         //Percentage of students who had fewer than 3 absences also had perfect attendance
         //System.out.println("The Percentage of students who had fewer than 3 absences also had perfect attendance is: " + prcnt(absences) + "%");
 
         //Which students had [X] absences
         ArrayList<Integer> students = students(absences, 8);
-        System.out.println("These students had your indicated absences: " + students);
+        System.out.println("These students had your indicated absences: " + students + "\n");
 
         //Which and what percentage of the students have FE'd the course
         ArrayList<Integer> FEs = FEs(absences, 2);
-        System.out.println("These students have Fe'd the course " + FEs);
+        System.out.println("These students have Fe'd the course " + FEs + "\n");
 
         //Add x to any absences greater than y
         ArrayList<Integer> plusList = plusList(absences, 3, 4);
-        System.out.println("The list with added absences: " + plusList);
+        System.out.println("The list with added absences: " + plusList + "\n");
 
         // Sort the absences using a library function
         Collections.sort(absences);
-        System.out.println("The sorted list of absences: " + absences);
+        System.out.println("The sorted list of absences: " + absences + "\n");
 
         //Shuffle the absences using a library function
         Collections.shuffle(absences);
-        System.out.println("The shuffled list of absences: " + absences);
+        System.out.println("The shuffled list of absences: " + absences + "\n");
 
         //How many of the absences are unique?
-        uniAbs(absences);
+        //TODO: initialize the set first
+        Set<Integer> uni = uniAbs(absences);
+        System.out.println("The unique absences are: " + uni + "\n");
 
         //How many of each absence value are there?
-        countUnq(absences);
+        //countUnq(absences);
 
         // Sort the absences using a user - defined sort function
         bubbleSort(absences);
-        System.out.println("The new sorted list: " + absences);
+        System.out.println("The new sorted list: " + absences + "\n");
 
         //Sort the absences using a user - defined shuffle function
         bubbleShuffle(absences);
-        System.out.println("The new shuffled list: " + absences);
+        System.out.println("The new shuffled list: " + absences + "\n");
 
         // Create and output an ArrayList of 5 distinct names
         ArrayList<String> names = new ArrayList<String>();
@@ -74,26 +73,39 @@ public class Main {
         names.add("Jenaro");
         names.add("Myles");
         System.out.println("The names in the list are: " + names);
-;
+
+        // shuffle the names using a user - defined shuffle function
+        //bubbleShufName(names);
+
+        //
+        ;
 
     }
 
+    /*private static void bubbleShufName(ArrayList<String> names) {
+        Random rn = new Random();
+        for (int i = 0; i < names.size() ; i++) {
+            names.set(,i);*/
+
+
+//}
+
     private static void bubbleShuffle(ArrayList<Integer> absences) {
-            Random rand = new Random();
-            for (int i = 0; i < absences.size(); i++) {
-                absences.set(rand.nextInt(absences.size()),i);
+        Random rand = new Random();
+        for (int i = 0; i < absences.size(); i++) {
+            absences.set(rand.nextInt(absences.size()), i);
 
 
         }
     }
 
     private static void bubbleSort(ArrayList<Integer> absences) {
-        for (int i = 0; i < absences.size() ; i++) {
-            for (int j = 0; j < absences.size() ; j++) {
-                if(absences.get(i) < absences.get(j)){
+        for (int i = 0; i < absences.size(); i++) {
+            for (int j = 0; j < absences.size(); j++) {
+                if (absences.get(i) < absences.get(j)) {
                     int temp = absences.get(i);
-                    absences.set(i,absences.get(j));
-                    absences.set(j,temp);
+                    absences.set(i, absences.get(j));
+                    absences.set(j, temp);
                 }
 
             }
@@ -101,10 +113,22 @@ public class Main {
         }
     }
 
-    private static void uniAbs(ArrayList<Integer> absences) {
+    private static Set<Integer> uniAbs(ArrayList<Integer> absences) {
+        Set<Integer> unique = new HashSet<Integer>();
+        for (int i = 0; i < absences.size() ; i++) {
+            unique.add(absences.get(i));
+
+        }
+        return unique;
+
+
+
     }
 
-    private static void countUnq(ArrayList<Integer> absences) {
+    private static void countUnq(ArrayList<Integer> absences,Set<Integer>uni) {
+        //int count = 0;
+
+
 
     }
 
@@ -195,8 +219,9 @@ public class Main {
         }
         return list;
     }
-}
 
+
+}
 
 
 
