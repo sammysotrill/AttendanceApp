@@ -125,8 +125,15 @@ public class Main {
 
     }
 
-    private static void countUnq(ArrayList<Integer> absences,Set<Integer>uni) {
-        //int count = 0;
+    private static int countUnq(ArrayList<Integer> absences,Set<Integer>uni) {
+        int count = 0;
+        for (int i = 0; i < uni.size() ; i++) {
+            if(uniAbs(absences) == absences.get(i)){
+
+            }
+
+
+        }
 
 
 
