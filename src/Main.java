@@ -69,16 +69,16 @@ public class Main {
         ArrayList<String> names = new ArrayList<String>();
         names.add("Samuel");
         names.add("Chandler");
-        names.add("Chibeza");
+        names.add("Elgin");
         names.add("Jenaro");
         names.add("Myles");
         System.out.println("The names in the list are: " + names);
 
-        // shuffle the names using a user - defined shuffle function
-        //bubbleShufName(names);
-
-        //
-        ;
+        // Using the 5 names, create another list that has the same size as the absences list.
+        ArrayList<String>newNames = lotOfNames(names,absences);
+        System.out.println("\n The new list of names is: " + newNames + "\n");
+        
+        
 
     }
 
@@ -125,17 +125,15 @@ public class Main {
 
     }
 
-    private static int countUnq(ArrayList<Integer> absences,Set<Integer>uni) {
-        int count = 0;
-        for (int i = 0; i < uni.size() ; i++) {
-            if(uniAbs(absences) == absences.get(i)){
-
-            }
-
-
+    private static ArrayList<String> initialize (ArrayList<String> names,ArrayList<Integer> absences) {
+        ArrayList<String>answer = new ArrayList<String>();
+        Random rand = new Random();
+        for (int i = 0; i < absences.size() ; i++) {
+            answer.add(rand.toString());
+            
         }
 
-
+        return answer;
 
     }
 
@@ -225,6 +223,18 @@ public class Main {
 
         }
         return list;
+    }
+
+    public static ArrayList<String> lotOfNames (ArrayList<String> names,ArrayList<Integer>absences){
+        ArrayList<String>answer = new ArrayList<String>();
+        Random rand = new Random();
+        for (int i = 0; i < absences.size() ; i++) {
+            String name = names.get(rand.nextInt(5));
+            answer.add(name);
+        }
+        return answer;
+
+
     }
 
 
